@@ -1,0 +1,7 @@
+node_modules/
+.sass-cache/
+bower_components/
+wp-cli.yml
+/vendor/
+/.tmp/
+.DS_Store
