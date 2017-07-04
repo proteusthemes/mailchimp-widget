@@ -38,7 +38,25 @@ Please refer to the official [GitHub repository](https://github.com/proteustheme
 
 == Frequently Asked Questions ==
 
-We will add FAQ to this section as soon as we get some questions.
+= How do I disable the default widget form styles? =
+
+You can do that easily with a help of custom WP filter. Please add this code to your theme:
+
+`add_filter( 'pt-mcw/disable_frontend_styles', '__return_true' );`
+
+= How do I change the texts of the widget? =
+
+You can change it with a help of custom WP filter. Please add this code to your theme and change the texts to your liking:
+
+`
+function pt_mcw_form_texts() {
+    return array(
+        'email'  => esc_html__( 'Your E-mail Address', 'pt-mcw' ),
+        'submit' => esc_html__( 'Subscribe!', 'pt-mcw' ),
+    );
+}
+add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
+`
 
 == Screenshots ==
 
