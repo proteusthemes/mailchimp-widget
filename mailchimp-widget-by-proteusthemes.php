@@ -53,8 +53,7 @@ class PTMCW_Plugin {
 
 		// The plugin version.
 		if ( ! defined( 'PT_MCW_VERSION' ) ) {
-			$plugin_data = get_plugin_data( __FILE__ );
-			define( 'PT_MCW_VERSION', $plugin_data['Version'] );
+			define( 'PT_MCW_VERSION', '1.0.0' );
 		}
 	}
 
