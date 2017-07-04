@@ -31,6 +31,9 @@ class PTMCW_Plugin {
 
 		// Enqueue plugin admin assets.
 		add_action( 'admin_enqueue_scripts', 'PTMCW_Plugin::enqueue_admin_scripts' );
+
+		// Enqueue plugin frontend assets.
+		add_action( 'wp_enqueue_scripts', 'PTMCW_Plugin::enqueue_frontend_scripts' );
 	}
 
 	/**
@@ -71,7 +74,7 @@ class PTMCW_Plugin {
 	 */
 	public static function enqueue_admin_scripts() {
 		// Enqueue admin JS.
-		wp_enqueue_script( 'ptmcw-admin-js', PT_MCW_URL . '/assets/js/admin.js', array( 'jquery' ), PT_MCW_VERSION );
+		wp_enqueue_script( 'ptmcw-admin-js', PT_MCW_URL . 'assets/js/admin.js', array( 'jquery' ), PT_MCW_VERSION, true );
 
 		// Provide the global variable to the 'ptmcw-admin-js'.
 		wp_localize_script( 'ptmcw-admin-js', 'PTMCWAdminVars', array(
@@ -83,6 +86,13 @@ class PTMCW_Plugin {
 				'incorrect_api_key' => esc_html__( 'This MailChimp API key is not formatted correctly, please copy the whole API key from the MailChimp dashboard!', 'pt-mcw' ),
 			)
 		) );
+	}
+
+	/**
+	 * Enqueue frontend scripts.
+	 */
+	public static function enqueue_frontend_scripts() {
+		wp_enqueue_style( 'ptmcw-main-css', PT_MCW_URL . 'assets/css/main.css', array(), PT_MCW_VERSION );
 	}
 }
 

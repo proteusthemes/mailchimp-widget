@@ -1,0 +1,35 @@
+.mailchimp-subscribe .mailchimp-subscribe__email-input {
+	color: #666666;
+	background: #ffffff;
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+	border: 1px solid #bbbbbb;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	display: block;
+	padding: 11px;
+	width: 100%;
+	margin-bottom: 15px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.mailchimp-subscribe .mailchimp-subscribe__submit {
+	width: 100%;
+	border: 0;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+	padding: 12px 11px;
+	background-color: #222222;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+.mailchimp-subscribe .mailchimp-subscribe__submit:hover,
+.mailchimp-subscribe .mailchimp-subscribe__submit:focus {
+	background: #767676;
+}
