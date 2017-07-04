@@ -4,7 +4,7 @@
 Plugin Name: MailChimp widget by ProteusThemes
 Plugin URI: https://wordpress.org/plugins/mailchimp-widget-by-proteusthemes/
 Description: MailChimp widget with API integration, that allows you to select which MailChimp list you want your visitors to subscribe to.
-Version: 0.1.0
+Version: 1.0.0
 Author: ProteusThemes
 Author URI: http://www.proteusthemes.com
 License: GPL3
