@@ -92,7 +92,7 @@ class PTMCW_Plugin {
 	 * Enqueue frontend scripts.
 	 */
 	public static function enqueue_frontend_scripts() {
-		if ( ! apply_filters( 'pt-mcw/disable-frontend-styles', false ) ) {
+		if ( ! apply_filters( 'pt-mcw/disable_frontend_styles', false ) ) {
 			wp_enqueue_style( 'ptmcw-main-css', PT_MCW_URL . 'assets/css/main.css', array(), PT_MCW_VERSION );
 		}
 	}

@@ -55,16 +55,21 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			$mc_securty_string = sprintf( 'b_%1$s_%2$s', esc_attr( $account_id ), esc_attr( $selected_list ) );
 
+			$form_texts = apply_filters( 'pt-mcw/form_texts', array(
+				'email'  => esc_html__( 'Your E-mail Address', 'pt-mcw' ),
+				'submit' => esc_html__( 'Subscribe!', 'pt-mcw' ),
+			) );
+
 			echo $args['before_widget'];
 			?>
 			<div class="mailchimp-subscribe">
 				<div id="mc_embed_signup">
 					<form action="<?php echo esc_url( $form_action ); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 						<div id="mc_embed_signup_scroll">
-							<input type="email" value="" name="EMAIL" class="email  form-control  mailchimp-subscribe__email-input" id="mce-EMAIL" placeholder="Your E-mail Address" required>
+							<input type="email" value="" name="EMAIL" class="email  form-control  mailchimp-subscribe__email-input" id="mce-EMAIL" placeholder="<?php echo esc_html( $form_texts['email'] ); ?>" required>
 							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="<?php echo esc_attr( $mc_securty_string ); ?>" tabindex="-1" value=""></div>
-							<input type="submit" value="Subscribe!" name="subscribe" id="mc-embedded-subscribe" class="button  btn  btn-primary mailchimp-subscribe__submit">
+							<input type="submit" value="<?php echo esc_html( $form_texts['submit'] ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button  btn  btn-primary mailchimp-subscribe__submit">
 						</div>
 					</form>
 				</div>
