@@ -16,11 +16,21 @@
 
 		// Abort, if the API key is not set.
 		if ( apiKey.length === 0 ) {
+			displayNotice( 'error', PTMCWAdminVars.text.no_api_key, $noticeDiv );
+
 			return false;
 		}
 
-		// The last 3 characters of the MailChimp API key represent the datacenter.
-		var mcDataCenter = apiKey.match( /us\d{1,2}$/ )[0];
+		// The last 3 or 4 characters (-us4 or -us12) of the MailChimp API key represent the datacenter.
+		var matchDataCenter = apiKey.match( /us\d{1,2}$/ );
+
+		if ( ! matchDataCenter ) {
+			displayNotice( 'error', PTMCWAdminVars.text.incorrect_api_key, $noticeDiv );
+
+			return false;
+		}
+
+		var mcDataCenter = matchDataCenter[0];
 
 		$.ajax({
 			url: PTMCWAdminVars.ajax_url,
@@ -34,18 +44,14 @@
 			},
 			beforeSend:  function() {
 				$( '.js-mailchimp-loader' ).show();
+
+				// Clear notice.
+				$noticeDiv.removeClass( 'updated error' ).text( '' );
 			}
 		})
 			.done(function( response ) {
 				if ( ! response.success ) {
-					$noticeDiv
-						.addClass( 'error' )
-						.removeClass( 'updated' )
-						.text( '' )
-						.append(
-							$('<p>')
-								.text( response.data.message )
-						);
+					displayNotice( 'error', response.data.message, $noticeDiv );
 
 					// Reset the select field and other settings.
 					$mcListSelect.find( 'option' ).remove();
@@ -53,14 +59,7 @@
 					$selectedList.val( '' );
 				}
 				else {
-					$noticeDiv
-						.addClass( 'updated' )
-						.removeClass( 'error' )
-						.text( '' )
-						.append(
-							$('<p>')
-								.text( response.data.message )
-						);
+					displayNotice( 'updated', response.data.message, $noticeDiv );
 
 					// Reset the select field and other settings.
 					$mcListSelect.find( 'option' ).remove();
@@ -91,14 +90,7 @@
 				}
 			})
 			.fail(function() {
-				$noticeDiv
-					.addClass( 'error' )
-					.removeClass( 'updated' )
-					.text( '' )
-					.append(
-						$('<p>')
-							.text( PTMCWAdminVars.ajax_error )
-					);
+				displayNotice( 'error', PTMCWAdminVars.text.ajax_error, $noticeDiv );
 
 				// Reset the select field and other settings.
 				$mcListSelect.find( 'option' ).remove();
@@ -120,4 +112,22 @@
 		$currentList.val( $( this ).val() );
 
 	} );
+
+	/**
+	 * Helper function to display the notice.
+	 *
+	 * @param type       Type of the notice ( 'error' or 'updated' ).
+	 * @param message    The text message.
+	 * @param $noticeDiv The jQuery element to append the message to.
+	 */
+	function displayNotice( type, message, $noticeDiv ) {
+		$noticeDiv
+			.removeClass( 'updated error' )
+			.addClass( type )
+			.text( '' )
+			.append(
+				$('<p>')
+					.text( message )
+			);
+	}
 }( jQuery ));

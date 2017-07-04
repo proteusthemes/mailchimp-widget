@@ -77,7 +77,11 @@ class PTMCW_Plugin {
 		wp_localize_script( 'ptmcw-admin-js', 'PTMCWAdminVars', array(
 			'ajax_url'    => admin_url( 'admin-ajax.php' ),
 			'ajax_nonce'  => wp_create_nonce( 'pt-mcw-ajax-verification' ),
-			'ajax_error'  => esc_html__( 'An error occurred while retrieving data via the AJAX request!', 'pt-mcw' ),
+			'text'        => array(
+				'ajax_error'        => esc_html__( 'An error occurred while retrieving data via the AJAX request!', 'pt-mcw' ),
+				'no_api_key'        => esc_html__( 'Please input the MailChimp API key!', 'pt-mcw' ),
+				'incorrect_api_key' => esc_html__( 'This MailChimp API key is not formatted correctly, please copy the whole API key from the MailChimp dashboard!', 'pt-mcw' ),
+			)
 		) );
 	}
 }
