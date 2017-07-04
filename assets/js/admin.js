@@ -65,7 +65,6 @@
 					// Reset the select field and other settings.
 					$mcListSelect.find( 'option' ).remove();
 					$mcAccountId.val( '' );
-					$selectedList.val( '' );
 
 					// Add options to the select control.
 					$.each( response.data.lists, function( key, value ) {
@@ -75,6 +74,11 @@
 									.text(value)
 							)
 					} );
+
+					// Set existing selected list.
+					if ( $selectedList.val().length > 0 && $mcListSelect.find( 'option[value=' + $selectedList.val() + ']' ) ) {
+						$mcListSelect.val( $selectedList.val() );
+					}
 
 					// Trigger the change event with the initialize set to true.
 					$mcListSelect.trigger( 'change', true );
