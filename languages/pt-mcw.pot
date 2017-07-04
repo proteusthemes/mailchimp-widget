@@ -32,65 +32,83 @@ msgstr ""
 msgid "Display a subscribe form for collecting emails with MailChimp."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:104
-msgid "In order to use this widget, you have to: "
+#: inc/widget-mailchimp-subscribe.php:59
+msgid "Your E-mail Address"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:108
-msgid "%1$sVisit this URL and login with your mailchimp account%2$s,"
+#: inc/widget-mailchimp-subscribe.php:60
+msgid "Subscribe!"
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:109
+msgid "In order to use this widget, you have to: "
+msgstr ""
+
+#: inc/widget-mailchimp-subscribe.php:113
+msgid "%1$sVisit this URL and login with your mailchimp account%2$s,"
+msgstr ""
+
+#: inc/widget-mailchimp-subscribe.php:114
 msgid "%1$sCreate an API key%2$s and paste it in the input field below,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:110
+#: inc/widget-mailchimp-subscribe.php:115
 msgid ""
 "Click on the Connect button, so that your existing MailChimp lists can be "
 "retrieved,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:111
+#: inc/widget-mailchimp-subscribe.php:116
 msgid ""
 "Select which list you want your visitors to subscribe to, from the dropdown "
 "menu below."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:115
+#: inc/widget-mailchimp-subscribe.php:120
 msgid "MailChimp API key:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:118
+#: inc/widget-mailchimp-subscribe.php:123
 msgid "Connect"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:123
+#: inc/widget-mailchimp-subscribe.php:128
 msgid "Loading ..."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:129
+#: inc/widget-mailchimp-subscribe.php:134
 msgid "MailChimp list:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:166
-#: inc/widget-mailchimp-subscribe.php:192
+#: inc/widget-mailchimp-subscribe.php:171
+#: inc/widget-mailchimp-subscribe.php:197
 msgid "There was an error connecting to the MailChimp servers."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:177
+#: inc/widget-mailchimp-subscribe.php:182
 msgid "Error: %1$s (error code: %2$s)"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:184
+#: inc/widget-mailchimp-subscribe.php:189
 msgid ""
 "There are no email lists with this API key! Please create an email list in "
 "the MailChimp dashboard and try again."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:204
+#: inc/widget-mailchimp-subscribe.php:209
 msgid "MailChimp lists were successfully retrieved!"
 msgstr ""
 
-#: mailchimp-widget-by-proteusthemes.php:80
+#: mailchimp-widget-by-proteusthemes.php:84
 msgid "An error occurred while retrieving data via the AJAX request!"
+msgstr ""
+
+#: mailchimp-widget-by-proteusthemes.php:85
+msgid "Please input the MailChimp API key!"
+msgstr ""
+
+#: mailchimp-widget-by-proteusthemes.php:86
+msgid ""
+"This MailChimp API key is not formatted correctly, please copy the whole "
+"API key from the MailChimp dashboard!"
 msgstr ""
