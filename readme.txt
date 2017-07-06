@@ -14,7 +14,7 @@ This plugin registers a custom WordPress widget called **MailChimp by ProteusThe
 
 This widget can be used for all sorts of things, like: newsletter, lead capture, email sequence, and much more!
 
-The Widget will output an email input field and a submit button, that's all you need to capture your visitor's email address.
+The Widget will output an email input field and a submit button, that's all you need to capture your visitor's email address. Main idea behind this plugin is that's easy and simple to use.
 
 **Do you want to contribute?**
 
