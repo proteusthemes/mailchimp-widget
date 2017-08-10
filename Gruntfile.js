@@ -40,7 +40,7 @@ module.exports = function ( grunt ) {
 				options: {
 					domainPath:      'languages/',
 					include:         [config.phpFileRegex, '^inc/'+config.phpFileInSubfolderRegex],
-					mainFile:        'one-click-demo-import.php',
+					mainFile:        'mailchimp-widget-by-proteusthemes.php',
 					potComments:     'Copyright (C) {year} ProteusThemes \n# This file is distributed under the GPL 3.0.',
 					potFilename:     'pt-mcw.pot',
 					potHeaders:      {

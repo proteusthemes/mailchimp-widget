@@ -2,7 +2,7 @@
 # This file is distributed under the GPL 3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: MailChimp widget by ProteusThemes 1.0.2\n"
 "Report-Msgid-Bugs-To: http://support.proteusthemes.com/\n"
 "POT-Creation-Date: 2017-07-03 12:35:09+00:00\n"
 "MIME-Version: 1.0\n"
@@ -40,62 +40,62 @@ msgstr ""
 msgid "Subscribe!"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:108
+#: inc/widget-mailchimp-subscribe.php:104
 msgid "In order to use this widget, you have to: "
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:112
+#: inc/widget-mailchimp-subscribe.php:108
 msgid "%1$sVisit this URL and login with your mailchimp account%2$s,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:113
+#: inc/widget-mailchimp-subscribe.php:109
 msgid "%1$sCreate an API key%2$s and paste it in the input field below,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:114
+#: inc/widget-mailchimp-subscribe.php:110
 msgid ""
 "Click on the Connect button, so that your existing MailChimp lists can be "
 "retrieved,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:115
+#: inc/widget-mailchimp-subscribe.php:111
 msgid ""
 "Select which list you want your visitors to subscribe to, from the dropdown "
 "menu below."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:119
+#: inc/widget-mailchimp-subscribe.php:115
 msgid "MailChimp API key:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:122
+#: inc/widget-mailchimp-subscribe.php:118
 msgid "Connect"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:127
+#: inc/widget-mailchimp-subscribe.php:123
 msgid "Loading ..."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:133
+#: inc/widget-mailchimp-subscribe.php:129
 msgid "MailChimp list:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:170
-#: inc/widget-mailchimp-subscribe.php:196
+#: inc/widget-mailchimp-subscribe.php:166
+#: inc/widget-mailchimp-subscribe.php:192
 msgid "There was an error connecting to the MailChimp servers."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:181
+#: inc/widget-mailchimp-subscribe.php:177
 msgid "Error: %1$s (error code: %2$s)"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:188
+#: inc/widget-mailchimp-subscribe.php:184
 msgid ""
 "There are no email lists with this API key! Please create an email list in "
 "the MailChimp dashboard and try again."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:208
+#: inc/widget-mailchimp-subscribe.php:204
 msgid "MailChimp lists were successfully retrieved!"
 msgstr ""
 
@@ -111,4 +111,26 @@ msgstr ""
 msgid ""
 "This MailChimp API key is not formatted correctly, please copy the whole "
 "API key from the MailChimp dashboard!"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "MailChimp widget by ProteusThemes"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/mailchimp-widget-by-proteusthemes/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"MailChimp widget with API integration, that allows you to select which "
+"MailChimp list you want your visitors to subscribe to."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "ProteusThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.proteusthemes.com"
 msgstr ""
