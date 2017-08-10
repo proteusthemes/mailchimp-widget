@@ -63,16 +63,12 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			echo $args['before_widget'];
 			?>
-			<div class="mailchimp-subscribe">
-				<form <?php echo ! empty( $form_action ) ? 'action="' . esc_url( $form_action ) . '"' : ''; ?> method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-					<div>
-						<input type="email" value="" name="EMAIL" class="email  form-control  mailchimp-subscribe__email-input" placeholder="<?php echo esc_html( $form_texts['email'] ); ?>" required>
-						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="<?php echo esc_attr( $mc_securty_string ); ?>" tabindex="-1" value=""></div>
-						<input type="submit" value="<?php echo esc_html( $form_texts['submit'] ); ?>" name="subscribe" class="button  btn  btn-primary mailchimp-subscribe__submit">
-					</div>
-				</form>
-			</div>
+			<form <?php echo ! empty( $form_action ) ? 'action="' . esc_url( $form_action ) . '"' : ''; ?> method="post" name="mc-embedded-subscribe-form" class="mailchimp-subscribe  validate" target="_blank" novalidate>
+				<input type="email" value="" name="EMAIL" class="email  form-control  mailchimp-subscribe__email-input" placeholder="<?php echo esc_html( $form_texts['email'] ); ?>" required>
+				<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+				<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="<?php echo esc_attr( $mc_securty_string ); ?>" tabindex="-1" value=""></div>
+				<input type="submit" value="<?php echo esc_html( $form_texts['submit'] ); ?>" name="subscribe" class="button  btn  btn-primary mailchimp-subscribe__submit">
+			</form>
 			<?php
 			echo $args['after_widget'];
 		}
