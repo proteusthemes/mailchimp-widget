@@ -2,7 +2,7 @@
 **Contributors:** capuderg, cyman, Prelc, proteusthemes  
 **Tags:** email, newsletter, widget, mailchimp, wordpress, form, plugin, subscribe, landing page  
 **Requires at least:** 4.0.0  
-**Tested up to:** 4.8  
+**Tested up to:** 4.9  
 **Stable tag:** 1.0.3  
 **License:** GPLv3 or later  
 
