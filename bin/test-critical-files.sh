@@ -8,12 +8,12 @@
 function testRequiredFiles {
 	parentFolder='./'
 	requiredFiles=(
-		mailchimp-widget-by-proteusthemes.php
+		proteusthemes-mailchimp-widget.php
 		readme.txt
 		assets/css/main.css
 		assets/js/admin.js
 		inc/widget-mailchimp-subscribe.php
-		languages/pt-mcw.pot
+		languages/proteusthemes-mailchimp-widget.pot
 	)
 	requiredFolders=(
 		assets/js

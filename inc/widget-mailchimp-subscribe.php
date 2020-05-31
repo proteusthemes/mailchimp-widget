@@ -17,9 +17,9 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 		public function __construct() {
 			parent::__construct(
 				false, // ID, auto generate when false.
-				esc_html__( 'MailChimp by ProteusThemes', 'pt-mcw' ),
+				esc_html__( 'Mailchimp by ProteusThemes', 'proteusthemes-mailchimp-widget' ),
 				array(
-					'description' => esc_html__( 'Display a subscribe form for collecting emails with MailChimp.', 'pt-mcw'),
+					'description' => esc_html__( 'Display a subscribe form for collecting emails with Mailchimp.', 'proteusthemes-mailchimp-widget'),
 					'classname'   => 'widget-mailchimp-subscribe',
 				)
 			);
@@ -57,8 +57,8 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 			$mc_securty_string = sprintf( 'b_%1$s_%2$s', esc_attr( $account_id ), esc_attr( $selected_list ) );
 
 			$form_texts = apply_filters( 'pt-mcw/form_texts', array(
-				'email'  => esc_html__( 'Your E-mail Address', 'pt-mcw' ),
-				'submit' => esc_html__( 'Subscribe!', 'pt-mcw' ),
+				'email'  => esc_html__( 'Your E-mail Address', 'proteusthemes-mailchimp-widget' ),
+				'submit' => esc_html__( 'Subscribe!', 'proteusthemes-mailchimp-widget' ),
 			) );
 
 			echo $args['before_widget'];
@@ -101,32 +101,32 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			?>
 			<p>
-				<?php esc_html_e( 'In order to use this widget, you have to: ', 'pt-mcw' ); ?>
+				<?php esc_html_e( 'In order to use this widget, you have to: ', 'proteusthemes-mailchimp-widget' ); ?>
 			</p>
 
 			<ol>
-				<li><?php printf( esc_html__( '%1$sVisit this URL and login with your mailchimp account%2$s,', 'pt-mcw' ), '<a href="https://admin.mailchimp.com/account/api" target="_blank">', '</a>' ); ?></li>
-				<li><?php printf( esc_html__( '%1$sCreate an API key%2$s and paste it in the input field below,', 'pt-mcw' ), '<a href="http://kb.mailchimp.com/integrations/api-integrations/about-api-keys#Find-or-Generate-Your-API-Key" target="_blank">', '</a>' ); ?></li>
-				<li><?php esc_html_e( 'Click on the Connect button, so that your existing MailChimp lists can be retrieved,', 'pt-mcw' ); ?></li>
-				<li><?php esc_html_e( 'Select which list you want your visitors to subscribe to, from the dropdown menu below.', 'pt-mcw' ); ?></li>
+				<li><?php printf( esc_html__( '%1$sVisit this URL and login with your mailchimp account%2$s,', 'proteusthemes-mailchimp-widget' ), '<a href="https://admin.mailchimp.com/account/api" target="_blank">', '</a>' ); ?></li>
+				<li><?php printf( esc_html__( '%1$sCreate an API key%2$s and paste it in the input field below,', 'proteusthemes-mailchimp-widget' ), '<a href="http://kb.mailchimp.com/integrations/api-integrations/about-api-keys#Find-or-Generate-Your-API-Key" target="_blank">', '</a>' ); ?></li>
+				<li><?php esc_html_e( 'Click on the Connect button, so that your existing Mailchimp lists can be retrieved,', 'proteusthemes-mailchimp-widget' ); ?></li>
+				<li><?php esc_html_e( 'Select which list you want your visitors to subscribe to, from the dropdown menu below.', 'proteusthemes-mailchimp-widget' ); ?></li>
 			</ol>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'api_key' ); ?>"><?php esc_html_e( 'MailChimp API key:', 'pt-mcw' ); ?>
+				<label for="<?php echo $this->get_field_id( 'api_key' ); ?>"><?php esc_html_e( 'Mailchimp API key:', 'proteusthemes-mailchimp-widget' ); ?>
 				</label>
 				<input class="js-mailchimp-api-key" id="<?php echo $this->get_field_id( 'api_key' ); ?>" name="<?php echo $this->get_field_name( 'api_key' ); ?>" type="text" value="<?php echo esc_html( $api_key ); ?>" />
-				<input class="js-connect-mailchimp-api-key  button" type="button" value="<?php esc_html_e( 'Connect', 'pt-mcw' ); ?>">
+				<input class="js-connect-mailchimp-api-key  button" type="button" value="<?php esc_html_e( 'Connect', 'proteusthemes-mailchimp-widget' ); ?>">
 				<input class="js-mailchimp-account-id" id="<?php echo $this->get_field_id( 'account_id' ); ?>" name="<?php echo $this->get_field_name( 'account_id' ); ?>" type="hidden" value="<?php echo esc_attr( $account_id ); ?>">
 			</p>
 
 			<p class="js-mailchimp-loader" style="display: none;">
-				<span class="spinner" style="display: inline-block; float: none; visibility: visible; margin-bottom: 6px;" ></span> <?php esc_html_e( 'Loading ...', 'pt-mcw' ); ?>
+				<span class="spinner" style="display: inline-block; float: none; visibility: visible; margin-bottom: 6px;" ></span> <?php esc_html_e( 'Loading ...', 'proteusthemes-mailchimp-widget' ); ?>
 			</p>
 
 			<div class="js-mailchimp-notice"></div>
 
 			<p class="js-mailchimp-list-container" style="display: none;">
-				<label for="<?php echo $this->get_field_id( 'list' ); ?>"><?php esc_html_e( 'MailChimp list:', 'pt-mcw' ); ?></label> <br>
+				<label for="<?php echo $this->get_field_id( 'list' ); ?>"><?php esc_html_e( 'Mailchimp list:', 'proteusthemes-mailchimp-widget' ); ?></label> <br>
 				<select id="<?php echo $this->get_field_id( 'list' ); ?>" name="<?php echo $this->get_field_name( 'list' ); ?>"></select>
 				<input class="js-mailchimp-selected-list" id="<?php echo $this->get_field_id( 'selected_list' ); ?>" name="<?php echo $this->get_field_name( 'selected_list' ); ?>" type="hidden" value="<?php echo esc_attr( $selected_list ); ?>">
 			</p>
@@ -141,7 +141,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 		}
 
 		/**
-		 * AJAX callback function to retrieve the MailChimp lists.
+		 * AJAX callback function to retrieve the Mailchimp lists.
 		 */
 		public function mailchimp_get_lists() {
 			check_ajax_referer( 'pt-mcw-ajax-verification', 'security' );
@@ -161,9 +161,9 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			$request = wp_remote_get( $mc_lists_endpoint, $args );
 
-			// Error while connecting to the MailChimp server.
+			// Error while connecting to the Mailchimp server.
 			if ( is_wp_error( $request ) ) {
-				$response['message'] = esc_html__( 'There was an error connecting to the MailChimp servers.', 'pt-mcw' );
+				$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
 
 				wp_send_json_error( $response );
 			}
@@ -174,14 +174,14 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			// The request was not successful.
 			if ( 200 !== $response_code ) {
-				$response['message'] = sprintf( esc_html__( 'Error: %1$s (error code: %2$s)', 'pt-mcw' ), $response_body['title'], $response_body['status'] );
+				$response['message'] = sprintf( esc_html__( 'Error: %1$s (error code: %2$s)', 'proteusthemes-mailchimp-widget' ), $response_body['title'], $response_body['status'] );
 
 				wp_send_json_error( $response );
 			}
 
-			// There are no lists in this MailChimp account.
+			// There are no lists in this Mailchimp account.
 			if ( empty( $response_body['lists'] ) ) {
-				$response['message'] = esc_html__( 'There are no email lists with this API key! Please create an email list in the MailChimp dashboard and try again.', 'pt-mcw' );
+				$response['message'] = esc_html__( 'There are no email lists with this API key! Please create an email list in the Mailchimp dashboard and try again.', 'proteusthemes-mailchimp-widget' );
 
 				wp_send_json_error( $response );
 			}
@@ -189,7 +189,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 			$mc_account_id = $this->get_mailchimp_account_id( $api_key, $mc_datacenter );
 
 			if ( empty( $mc_account_id ) ) {
-				$response['message'] = esc_html__( 'There was an error connecting to the MailChimp servers.', 'pt-mcw' );
+				$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
 
 				wp_send_json_error( $response );
 			}
@@ -201,7 +201,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 				$lists[ $list['id'] ] = $list['name'];
 			}
 
-			$response['message']    = esc_html__( 'MailChimp lists were successfully retrieved!', 'pt-mcw' );
+			$response['message']    = esc_html__( 'Mailchimp lists were successfully retrieved!', 'proteusthemes-mailchimp-widget' );
 			$response['lists']      = $lists;
 			$response['account_id'] = $mc_account_id;
 

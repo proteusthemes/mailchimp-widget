@@ -1,16 +1,16 @@
-# MailChimp Widget by ProteusThemes #
+# Mailchimp Widget by ProteusThemes #
 **Contributors:** capuderg, cyman, Prelc, proteusthemes  
 **Tags:** email, newsletter, widget, mailchimp, wordpress, form, plugin, subscribe, landing page  
 **Requires at least:** 4.0.0  
-**Tested up to:** 4.9  
+**Tested up to:** 5.4.1  
 **Stable tag:** 1.0.3  
 **License:** GPLv3 or later  
 
-Capture your visitor's email address and subscribe them to your newsletter campaign with this simple MailChimp widget plugin!
+Capture your visitor's email address and subscribe them to your newsletter campaign with this simple Mailchimp widget plugin!
 
 ## Description ##
 
-This plugin registers a custom WordPress widget called **MailChimp by ProteusThemes**. This widget will allow you to connect to your MailChimp account with your API key and you will be able to select the list you want your visitors to subscribe to.
+This plugin registers a custom WordPress widget called **Mailchimp by ProteusThemes**. This widget will allow you to connect to your Mailchimp account with your API key and you will be able to select the list you want your visitors to subscribe to.
 
 This widget can be used for all sorts of things, like: newsletter, lead capture, email sequence, and much more!
 
@@ -25,16 +25,16 @@ Please refer to the official [GitHub repository](https://github.com/proteustheme
 **From your WordPress dashboard**
 
 1. Visit 'Plugins > Add New',
-2. Search for 'MailChimp widget by ProteusThemes' and install the plugin,
-3. Activate 'MailChimp widget by ProteusThemes' from your Plugins page.
+2. Search for 'Mailchimp widget by ProteusThemes' and install the plugin,
+3. Activate 'Mailchimp widget by ProteusThemes' from your Plugins page.
 
 **From WordPress.org**
 
-1. Download 'MailChimp widget by ProteusThemes'.
-2. Upload the 'mailchimp-widget-by-proteusthemes' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
-3. Activate 'MailChimp widget by ProteusThemes' from your Plugins page.
+1. Download 'Mailchimp widget by ProteusThemes'.
+2. Upload the 'proteusthemes-mailchimp-widget' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
+3. Activate 'Mailchimp widget by ProteusThemes' from your Plugins page.
 
-**Once the plugin is activated you will find the widget (MailChimp by ProteusThemes) in Appearance -> Widgets or in your page builder, if it supports widgets**
+**Once the plugin is activated you will find the widget (Mailchimp by ProteusThemes) in Appearance -> Widgets or in your page builder, if it supports widgets**
 
 ## Frequently Asked Questions ##
 

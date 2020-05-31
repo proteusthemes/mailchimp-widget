@@ -2,7 +2,7 @@
 
 # Remote SVN repo on WordPress.org for this plugin
 SVNURL="https://plugins.svn.wordpress.org/proteusthemes-mailchimp-widget"
-MAINFILE="mailchimp-widget-by-proteusthemes.php"
+MAINFILE="proteusthemes-mailchimp-widget.php"
 
 # Let's begin...
 echo ".........................................."
@@ -38,7 +38,7 @@ rm -rf trunk tags/$PLUGINVERSION
 # Copy fresh code to trunk and tags folder
 echo "Copying freshly pushed code to trunk and tags folder..."
 mkdir trunk
-mv ../mailchimp-widget-by-proteusthemes/* trunk/
+mv ../proteusthemes-mailchimp-widget/* trunk/
 cp -r trunk tags/$PLUGINVERSION
 
 # Add all new files to svn repo

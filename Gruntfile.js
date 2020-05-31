@@ -7,7 +7,7 @@ module.exports = function ( grunt ) {
 		tmpdir:                  '.tmp/',
 		phpFileRegex:            '[^/]+\.php$',
 		phpFileInSubfolderRegex: '.*?\.php$',
-		pluginSlug:              'mailchimp-widget-by-proteusthemes',
+		pluginSlug:              'proteusthemes-mailchimp-widget',
 	};
 
 	// configuration
@@ -40,9 +40,9 @@ module.exports = function ( grunt ) {
 				options: {
 					domainPath:      'languages/',
 					include:         [config.phpFileRegex, '^inc/'+config.phpFileInSubfolderRegex],
-					mainFile:        'mailchimp-widget-by-proteusthemes.php',
+					mainFile:        'proteusthemes-mailchimp-widget.php',
 					potComments:     'Copyright (C) {year} ProteusThemes \n# This file is distributed under the GPL 3.0.',
-					potFilename:     'pt-mcw.pot',
+					potFilename:     'proteusthemes-mailchimp-widget.pot',
 					potHeaders:      {
 						poedit:                 true,
 						'report-msgid-bugs-to': 'http://support.proteusthemes.com/',

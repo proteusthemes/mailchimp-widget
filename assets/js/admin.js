@@ -1,7 +1,7 @@
 /* global: PTMCWAdminVars */
 
 /**
- * The MailChimp subscribe widget - admin area.
+ * The Mailchimp subscribe widget - admin area.
  */
 (function ( $ ) {
 	$( document ).on( 'click', '.js-connect-mailchimp-api-key', function( event ) {
@@ -21,7 +21,7 @@
 			return false;
 		}
 
-		// The last 3 or 4 characters (-us4 or -us12) of the MailChimp API key represent the datacenter.
+		// The last 3 or 4 characters (-us4 or -us12) of the Mailchimp API key represent the datacenter.
 		var matchDataCenter = apiKey.match( /us\d{1,2}$/ );
 
 		if ( ! matchDataCenter ) {

@@ -1,15 +1,17 @@
 <?php
 
 /*
-Plugin Name: MailChimp widget by ProteusThemes
-Plugin URI: https://wordpress.org/plugins/mailchimp-widget-by-proteusthemes/
-Description: MailChimp widget with API integration, that allows you to select which MailChimp list you want your visitors to subscribe to.
-Version: 1.0.3
+Plugin Name: Mailchimp widget by ProteusThemes
+Plugin URI: https://wordpress.org/plugins/proteusthemes-mailchimp-widget/
+Description: Mailchimp widget with API integration, that allows you to select which Mailchimp list you want your visitors to subscribe to.
+Version: 1.0.4
+Tested up to: 5.4.1
 Author: ProteusThemes
 Author URI: http://www.proteusthemes.com
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl.html
-Text Domain: pt-mcw
+Text Domain: proteusthemes-mailchimp-widget
+Domain Path: /languages
 */
 
 // Block direct access to the main plugin file.
@@ -80,9 +82,9 @@ class PTMCW_Plugin {
 			'ajax_url'    => admin_url( 'admin-ajax.php' ),
 			'ajax_nonce'  => wp_create_nonce( 'pt-mcw-ajax-verification' ),
 			'text'        => array(
-				'ajax_error'        => esc_html__( 'An error occurred while retrieving data via the AJAX request!', 'pt-mcw' ),
-				'no_api_key'        => esc_html__( 'Please input the MailChimp API key!', 'pt-mcw' ),
-				'incorrect_api_key' => esc_html__( 'This MailChimp API key is not formatted correctly, please copy the whole API key from the MailChimp dashboard!', 'pt-mcw' ),
+				'ajax_error'        => esc_html__( 'An error occurred while retrieving data via the AJAX request!', 'proteusthemes-mailchimp-widget' ),
+				'no_api_key'        => esc_html__( 'Please input the Mailchimp API key!', 'proteusthemes-mailchimp-widget' ),
+				'incorrect_api_key' => esc_html__( 'This Mailchimp API key is not formatted correctly, please copy the whole API key from the Mailchimp dashboard!', 'proteusthemes-mailchimp-widget' ),
 			)
 		) );
 	}

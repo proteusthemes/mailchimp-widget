@@ -1,14 +1,14 @@
-# Copyright (C) 2017 ProteusThemes 
+# Copyright (C) 2020 ProteusThemes 
 # This file is distributed under the GPL 3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: MailChimp widget by ProteusThemes 1.0.2\n"
+"Project-Id-Version: Mailchimp widget by ProteusThemes 1.0.3\n"
 "Report-Msgid-Bugs-To: http://support.proteusthemes.com/\n"
 "POT-Creation-Date: 2017-07-03 12:35:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -25,11 +25,11 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: inc/widget-mailchimp-subscribe.php:20
-msgid "MailChimp by ProteusThemes"
+msgid "Mailchimp by ProteusThemes"
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:22
-msgid "Display a subscribe form for collecting emails with MailChimp."
+msgid "Display a subscribe form for collecting emails with Mailchimp."
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:60
@@ -54,7 +54,7 @@ msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:110
 msgid ""
-"Click on the Connect button, so that your existing MailChimp lists can be "
+"Click on the Connect button, so that your existing Mailchimp lists can be "
 "retrieved,"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgid ""
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:115
-msgid "MailChimp API key:"
+msgid "Mailchimp API key:"
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:118
@@ -77,12 +77,12 @@ msgid "Loading ..."
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:129
-msgid "MailChimp list:"
+msgid "Mailchimp list:"
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:166
 #: inc/widget-mailchimp-subscribe.php:192
-msgid "There was an error connecting to the MailChimp servers."
+msgid "There was an error connecting to the Mailchimp servers."
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:177
@@ -92,39 +92,39 @@ msgstr ""
 #: inc/widget-mailchimp-subscribe.php:184
 msgid ""
 "There are no email lists with this API key! Please create an email list in "
-"the MailChimp dashboard and try again."
+"the Mailchimp dashboard and try again."
 msgstr ""
 
 #: inc/widget-mailchimp-subscribe.php:204
-msgid "MailChimp lists were successfully retrieved!"
+msgid "Mailchimp lists were successfully retrieved!"
 msgstr ""
 
-#: mailchimp-widget-by-proteusthemes.php:83
+#: proteusthemes-mailchimp-widget.php:83
 msgid "An error occurred while retrieving data via the AJAX request!"
 msgstr ""
 
-#: mailchimp-widget-by-proteusthemes.php:84
-msgid "Please input the MailChimp API key!"
+#: proteusthemes-mailchimp-widget.php:84
+msgid "Please input the Mailchimp API key!"
 msgstr ""
 
-#: mailchimp-widget-by-proteusthemes.php:85
+#: proteusthemes-mailchimp-widget.php:85
 msgid ""
-"This MailChimp API key is not formatted correctly, please copy the whole "
-"API key from the MailChimp dashboard!"
+"This Mailchimp API key is not formatted correctly, please copy the whole "
+"API key from the Mailchimp dashboard!"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "MailChimp widget by ProteusThemes"
+msgid "Mailchimp widget by ProteusThemes"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://wordpress.org/plugins/mailchimp-widget-by-proteusthemes/"
+msgid "https://wordpress.org/plugins/proteusthemes-mailchimp-widget/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"MailChimp widget with API integration, that allows you to select which "
-"MailChimp list you want your visitors to subscribe to."
+"Mailchimp widget with API integration, that allows you to select which "
+"Mailchimp list you want your visitors to subscribe to."
 msgstr ""
 
 #. Author of the plugin/theme
