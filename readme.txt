@@ -1,9 +1,9 @@
 === Mailchimp Widget by ProteusThemes ===
 Contributors: capuderg, cyman, Prelc, proteusthemes
 Tags: email, newsletter, widget, mailchimp, wordpress, form, plugin, subscribe, landing page
-Requires at least: 4.0.0
+Requires at least: 4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3 or later
 
 Capture your visitor's email address and subscribe them to your newsletter campaign with this simple Mailchimp widget plugin!
@@ -65,6 +65,16 @@ add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
 3. Widget frontend with styled design
 
 == Changelog ==
+
+= 1.0.5 =
+
+* Make this plugin w.org translation compatible
+
+= 1.0.4 =
+
+* Fix typos
+
+= 1.0.2 =
 
 = 1.0.3 =
 
