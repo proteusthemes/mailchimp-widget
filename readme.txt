@@ -3,7 +3,7 @@ Contributors: capuderg, cyman, Prelc, proteusthemes
 Tags: email, newsletter, widget, mailchimp, wordpress, form, plugin, subscribe, landing page
 Requires at least: 4.0.0
 Tested up to: 5.4.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3 or later
 
 Capture your visitor's email address and subscribe them to your newsletter campaign with this simple Mailchimp widget plugin!
