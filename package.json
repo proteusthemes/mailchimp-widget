@@ -1,11 +1,16 @@
 {
+  "name": "proteusthemes-mailchimp-widget",
   "private": true,
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-po2mo": "^0.1.2",
-    "grunt-wp-i18n": "^0.5.1",
-    "grunt-wp-readme-to-markdown": "^1.0.0",
-    "load-grunt-tasks": "^3.1.0"
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "npm run i18n && npm run readme && npm run package && npm run test:package",
+    "i18n": "node bin/i18n.mjs",
+    "readme": "node bin/readme.mjs",
+    "package": "node bin/package.mjs",
+    "test": "node --test",
+    "test:package": "bash bin/test-critical-files.sh proteusthemes-mailchimp-widget",
+    "lint": "node --check bin/i18n.mjs && node --check bin/package.mjs && node --check bin/readme.mjs && bash -n bin/install-deps.sh bin/test-critical-files.sh bin/deploy-plugin.sh"
   }
 }

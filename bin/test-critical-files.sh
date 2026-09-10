@@ -6,7 +6,7 @@
 # - 2: folder missing
 
 function testRequiredFiles {
-	parentFolder='./'
+	parentFolder="${1:-./}"
 	requiredFiles=(
 		proteusthemes-mailchimp-widget.php
 		readme.txt
@@ -44,5 +44,5 @@ function testRequiredFiles {
 }
 
 # call and unset
-testRequiredFiles
+testRequiredFiles "$@"
 unset testRequiredFiles

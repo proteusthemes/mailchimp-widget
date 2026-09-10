@@ -48,26 +48,26 @@ You can do that easily with a help of custom WP filter. Please add this code to 
 
 You can change it with a help of custom WP filter. Please add this code to your theme and change the texts to your liking:
 
-
-	function pt_mcw_form_texts() {
-	    return array(
-	        'email'  => esc_html__( 'Your E-mail Address', 'pt-mcw' ),
-	        'submit' => esc_html__( 'Subscribe!', 'pt-mcw' ),
-	    );
-	}
-	add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
-
+```php
+function pt_mcw_form_texts() {
+    return array(
+        'email'  => esc_html__( 'Your E-mail Address', 'pt-mcw' ),
+        'submit' => esc_html__( 'Subscribe!', 'pt-mcw' ),
+    );
+}
+add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
+```
 
 ## Screenshots ##
 
 ### 1. Widget settings ###
-![Widget settings](http://ps.w.org/mailchimp-widget-by-proteusthemes/assets/screenshot-1.png)
+![Widget settings](https://ps.w.org/proteusthemes-mailchimp-widget/assets/screenshot-1.png)
 
 ### 2. Widget frontend with basic design ###
-![Widget frontend with basic design](http://ps.w.org/mailchimp-widget-by-proteusthemes/assets/screenshot-2.png)
+![Widget frontend with basic design](https://ps.w.org/proteusthemes-mailchimp-widget/assets/screenshot-2.png)
 
 ### 3. Widget frontend with styled design ###
-![Widget frontend with styled design](http://ps.w.org/mailchimp-widget-by-proteusthemes/assets/screenshot-3.png)
+![Widget frontend with styled design](https://ps.w.org/proteusthemes-mailchimp-widget/assets/screenshot-3.png)
 
 
 ## Changelog ##

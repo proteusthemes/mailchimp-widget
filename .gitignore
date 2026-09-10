@@ -5,3 +5,7 @@ wp-cli.yml
 /vendor/
 /.tmp/
 .DS_Store
+/.worktrees/
+/tmp/
+/proteusthemes-mailchimp-widget/
+/languages/*.mo
