@@ -3,7 +3,7 @@
 **Tags:** email, newsletter, widget, mailchimp, wordpress, form, plugin, subscribe, landing page  
 **Requires at least:** 4.6  
 **Tested up to:** 5.4.1  
-**Stable tag:** 1.0.5  
+**Stable tag:** 1.0.6  
 **License:** GPLv3 or later  
 
 Capture your visitor's email address and subscribe them to your newsletter campaign with this simple Mailchimp widget plugin!
@@ -72,6 +72,14 @@ add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
 
 ## Changelog ##
 
+### 1.0.6 ###
+
+* Security hardening
+* Keep the saved Mailchimp account and list when connecting to Mailchimp fails
+* Show the subscribe form only after the widget is connected to a Mailchimp list
+* Show all Mailchimp lists in the list dropdown
+* Fix PHP warnings
+
 ### 1.0.5 ###
 
 * Make this plugin w.org translation compatible
@@ -79,8 +87,6 @@ add_filter( 'pt-mcw/form_texts', 'pt_mcw_form_texts' );
 ### 1.0.4 ###
 
 * Fix typos
-
-### 1.0.2 ###
 
 ### 1.0.3 ###
 

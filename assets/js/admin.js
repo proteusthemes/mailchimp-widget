@@ -7,7 +7,8 @@
 	$( document ).on( 'click', '.js-connect-mailchimp-api-key', function( event ) {
 		event.preventDefault();
 
-		var apiKey = $( this ).siblings( '.js-mailchimp-api-key' ).val(),
+		var $apiKey = $( this ).siblings( '.js-mailchimp-api-key' ),
+			apiKey = $apiKey.val(),
 			$noticeDiv = $( this ).parent().siblings( '.js-mailchimp-notice' ),
 			$mcListContainer = $( this ).parent().siblings( '.js-mailchimp-list-container' ),
 			$mcListSelect = $mcListContainer.find( 'select' ),
@@ -53,17 +54,18 @@
 				if ( ! response.success ) {
 					displayNotice( 'error', response.data.message, $noticeDiv );
 
-					// Reset the select field and other settings.
-					$mcListSelect.find( 'option' ).remove();
-					$mcAccountId.val( '' );
-					$selectedList.val( '' );
+					// Reset the select field and other settings, unless they belong to the saved API key.
+					if ( apiKey !== $apiKey.prop( 'defaultValue' ) ) {
+						$mcListSelect.find( 'option' ).remove();
+						$mcAccountId.val( '' );
+						$selectedList.val( '' );
+					}
 				}
 				else {
 					displayNotice( 'updated', response.data.message, $noticeDiv );
 
-					// Reset the select field and other settings.
+					// Reset the select field.
 					$mcListSelect.find( 'option' ).remove();
-					$mcAccountId.val( '' );
 
 					// Add options to the select control.
 					$.each( response.data.lists, function( key, value ) {
@@ -73,6 +75,13 @@
 									.text(value)
 							)
 					} );
+
+					// Keep the saved list of the saved account, even if it was not retrieved.
+					var savedList = $selectedList.val();
+
+					if ( savedList.length > 0 && $mcAccountId.val() === response.data.account_id && 0 === $mcListSelect.find( 'option' ).filter( function() { return this.value === savedList; } ).length ) {
+						$mcListSelect.append( $('<option>', { "value" : savedList } ).text( savedList ) );
+					}
 
 					// Set existing selected list.
 					if ( $selectedList.val().length > 0 && $mcListSelect.find( 'option[value=' + $selectedList.val() + ']' ) ) {
@@ -92,10 +101,12 @@
 			.fail(function() {
 				displayNotice( 'error', PTMCWAdminVars.text.ajax_error, $noticeDiv );
 
-				// Reset the select field and other settings.
-				$mcListSelect.find( 'option' ).remove();
-				$mcAccountId.val( '' );
-				$selectedList.val( '' );
+				// Reset the select field and other settings, unless they belong to the saved API key.
+				if ( apiKey !== $apiKey.prop( 'defaultValue' ) ) {
+					$mcListSelect.find( 'option' ).remove();
+					$mcAccountId.val( '' );
+					$selectedList.val( '' );
+				}
 			})
 			.always(function() {
 				$( '.js-mailchimp-loader' ).hide();
