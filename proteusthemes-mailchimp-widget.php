@@ -74,7 +74,7 @@ class PTMCW_Plugin {
 	 * Enqueue admin scripts.
 	 */
 	public static function enqueue_admin_scripts() {
-		if ( ! current_user_can( 'edit_theme_options' ) && ! current_user_can( 'edit_posts' ) ) {
+		if ( ! current_user_can( 'edit_theme_options' ) && ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
 			return;
 		}
 

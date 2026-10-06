@@ -170,7 +170,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 		public function mailchimp_get_lists() {
 			check_ajax_referer( 'pt-mcw-ajax-verification', 'security' );
 
-			if ( ! current_user_can( 'edit_theme_options' ) && ! current_user_can( 'edit_posts' ) ) {
+			if ( ! current_user_can( 'edit_theme_options' ) && ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
 				wp_send_json_error( array( 'message' => esc_html__( 'You are not allowed to do this.', 'proteusthemes-mailchimp-widget' ) ), 403 );
 			}
 
