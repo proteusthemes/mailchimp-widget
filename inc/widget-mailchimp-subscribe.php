@@ -43,6 +43,18 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 			$mc_datacenter = '';
 			$form_action   = '';
 
+			if ( empty( $account_id ) || empty( $selected_list ) || ! preg_match( '/us\d{1,2}$/', $api_key ) ) {
+				if ( current_user_can( 'edit_theme_options' ) ) {
+					echo $args['before_widget'];
+					?>
+					<p><?php esc_html_e( 'The Mailchimp account is not connected yet, so this subscribe form is hidden from visitors.', 'proteusthemes-mailchimp-widget' ); ?></p>
+					<?php
+					echo $args['after_widget'];
+				}
+
+				return;
+			}
+
 			if ( ! empty( $api_key ) && preg_match( '/us\d{1,2}$/', $api_key, $mc_dc_match ) ) {
 				$mc_datacenter = $mc_dc_match[0];
 
@@ -80,11 +92,23 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 		 * @param array $old_instance The previous options.
 		 */
 		public function update( $new_instance, $old_instance ) {
-			$instance = array();
+			$defaults     = array( 'api_key' => '', 'account_id' => '', 'selected_list' => '' );
+			$new_instance = wp_parse_args( (array) $new_instance, $defaults );
+			$old_instance = wp_parse_args( (array) $old_instance, $defaults );
+			$instance     = array();
 
 			$instance['api_key']       = sanitize_text_field( $new_instance['api_key'] );
 			$instance['account_id']    = sanitize_text_field( $new_instance['account_id'] );
 			$instance['selected_list'] = sanitize_text_field( $new_instance['selected_list'] );
+
+			if ( $instance['api_key'] === $old_instance['api_key'] ) {
+				// A failed connection in the admin can submit empty values for an unchanged key, so keep the saved ones.
+				foreach ( array( 'account_id', 'selected_list' ) as $key ) {
+					if ( '' === $instance[ $key ] && ! empty( $old_instance[ $key ] ) ) {
+						$instance[ $key ] = $old_instance[ $key ];
+					}
+				}
+			}
 
 			return $instance;
 		}
@@ -146,10 +170,20 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 		public function mailchimp_get_lists() {
 			check_ajax_referer( 'pt-mcw-ajax-verification', 'security' );
 
+			if ( ! current_user_can( 'edit_theme_options' ) && ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+				wp_send_json_error( array( 'message' => esc_html__( 'You are not allowed to do this.', 'proteusthemes-mailchimp-widget' ) ), 403 );
+			}
+
 			$response = array();
 
-			$api_key       = sanitize_text_field( $_GET['api_key'] );
-			$mc_datacenter = sanitize_text_field( $_GET['mc_dc'] );
+			$api_key       = isset( $_GET['api_key'] ) ? sanitize_text_field( wp_unslash( $_GET['api_key'] ) ) : '';
+			$mc_datacenter = isset( $_GET['mc_dc'] ) ? sanitize_text_field( wp_unslash( $_GET['mc_dc'] ) ) : '';
+
+			if ( '' === $api_key || ! preg_match( '/^us\d{1,2}$/', $mc_datacenter ) ) {
+				$response['message'] = esc_html__( 'This Mailchimp API key is not formatted correctly, please copy the whole API key from the Mailchimp dashboard!', 'proteusthemes-mailchimp-widget' );
+
+				wp_send_json_error( $response );
+			}
 
 			$args = array(
 				'headers' => array(
@@ -159,28 +193,58 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			$mc_lists_endpoint = sprintf( 'https://%1$s.api.mailchimp.com/3.0/lists', $mc_datacenter );
 
-			$request = wp_remote_get( $mc_lists_endpoint, $args );
+			$lists  = array();
+			$offset = 0;
 
-			// Error while connecting to the Mailchimp server.
-			if ( is_wp_error( $request ) ) {
-				$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
+			do {
+				$request = wp_safe_remote_get( add_query_arg( array(
+					'count'  => 1000,
+					'offset' => $offset,
+				), $mc_lists_endpoint ), $args );
 
-				wp_send_json_error( $response );
-			}
+				// Error while connecting to the Mailchimp server.
+				if ( is_wp_error( $request ) ) {
+					$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
 
-			// Retrieve the response code and body.
-			$response_code = wp_remote_retrieve_response_code( $request );
-			$response_body = json_decode( wp_remote_retrieve_body( $request ), true );
+					wp_send_json_error( $response );
+				}
 
-			// The request was not successful.
-			if ( 200 !== $response_code ) {
-				$response['message'] = sprintf( esc_html__( 'Error: %1$s (error code: %2$s)', 'proteusthemes-mailchimp-widget' ), $response_body['title'], $response_body['status'] );
+				// Retrieve the response code and body.
+				$response_code = wp_remote_retrieve_response_code( $request );
+				$response_body = json_decode( wp_remote_retrieve_body( $request ), true );
 
-				wp_send_json_error( $response );
-			}
+				if ( ! is_array( $response_body ) ) {
+					$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
+
+					wp_send_json_error( $response );
+				}
+
+				// The request was not successful.
+				if ( 200 !== $response_code ) {
+					$response['message'] = sprintf(
+						esc_html__( 'Error: %1$s (error code: %2$s)', 'proteusthemes-mailchimp-widget' ),
+						isset( $response_body['title'] ) ? $response_body['title'] : '',
+						isset( $response_body['status'] ) ? $response_body['status'] : ''
+					);
+
+					wp_send_json_error( $response );
+				}
+
+				$page_lists = isset( $response_body['lists'] ) && is_array( $response_body['lists'] ) ? $response_body['lists'] : array();
+
+				// Parse through the retrieved lists and collect the info we need.
+				foreach ( $page_lists as $list ) {
+					if ( isset( $list['id'], $list['name'] ) ) {
+						$lists[ $list['id'] ] = $list['name'];
+					}
+				}
+
+				$offset     += count( $page_lists );
+				$total_items = isset( $response_body['total_items'] ) ? (int) $response_body['total_items'] : 0;
+			} while ( ! empty( $page_lists ) && $offset < $total_items );
 
 			// There are no lists in this Mailchimp account.
-			if ( empty( $response_body['lists'] ) ) {
+			if ( empty( $lists ) ) {
 				$response['message'] = esc_html__( 'There are no email lists with this API key! Please create an email list in the Mailchimp dashboard and try again.', 'proteusthemes-mailchimp-widget' );
 
 				wp_send_json_error( $response );
@@ -192,13 +256,6 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 				$response['message'] = esc_html__( 'There was an error connecting to the Mailchimp servers.', 'proteusthemes-mailchimp-widget' );
 
 				wp_send_json_error( $response );
-			}
-
-			$lists = array();
-
-			// Parse through the retrieved lists and collect the info we need.
-			foreach ( $response_body['lists'] as $list ) {
-				$lists[ $list['id'] ] = $list['name'];
 			}
 
 			$response['message']    = esc_html__( 'Mailchimp lists were successfully retrieved!', 'proteusthemes-mailchimp-widget' );
@@ -223,7 +280,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			$mc_account_endpoint = sprintf( 'https://%1$s.api.mailchimp.com/3.0/', $mc_datacenter );
 
-			$request = wp_remote_get( $mc_account_endpoint, $args );
+			$request = wp_safe_remote_get( $mc_account_endpoint, $args );
 
 			if ( is_wp_error( $request ) || 200 !== wp_remote_retrieve_response_code( $request ) ) {
 				return false;
@@ -231,7 +288,7 @@ if ( ! class_exists( 'PT_Mailchimp_Subscribe' ) ) {
 
 			$body = json_decode( wp_remote_retrieve_body( $request ), true );
 
-			return $body['account_id'];
+			return isset( $body['account_id'] ) ? $body['account_id'] : false;
 		}
 
 	}

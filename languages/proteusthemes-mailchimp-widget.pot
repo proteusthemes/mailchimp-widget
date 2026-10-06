@@ -2,7 +2,7 @@
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mailchimp widget by ProteusThemes 1.0.5\n"
+"Project-Id-Version: Mailchimp widget by ProteusThemes 1.0.6\n"
 "Report-Msgid-Bugs-To: http://support.proteusthemes.com/\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,78 +50,88 @@ msgstr ""
 msgid "Display a subscribe form for collecting emails with Mailchimp."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:60
+#: inc/widget-mailchimp-subscribe.php:50
+msgid "The Mailchimp account is not connected yet, so this subscribe form is hidden from visitors."
+msgstr ""
+
+#: inc/widget-mailchimp-subscribe.php:72
 msgid "Your E-mail Address"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:61
+#: inc/widget-mailchimp-subscribe.php:73
 msgid "Subscribe!"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:104
+#: inc/widget-mailchimp-subscribe.php:128
 msgid "In order to use this widget, you have to: "
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:108
+#: inc/widget-mailchimp-subscribe.php:132
 #, php-format
 msgid "%1$sVisit this URL and login with your mailchimp account%2$s,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:109
+#: inc/widget-mailchimp-subscribe.php:133
 #, php-format
 msgid "%1$sCreate an API key%2$s and paste it in the input field below,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:110
+#: inc/widget-mailchimp-subscribe.php:134
 msgid "Click on the Connect button, so that your existing Mailchimp lists can be retrieved,"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:111
+#: inc/widget-mailchimp-subscribe.php:135
 msgid "Select which list you want your visitors to subscribe to, from the dropdown menu below."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:115
+#: inc/widget-mailchimp-subscribe.php:139
 msgid "Mailchimp API key:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:118
+#: inc/widget-mailchimp-subscribe.php:142
 msgid "Connect"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:123
+#: inc/widget-mailchimp-subscribe.php:147
 msgid "Loading ..."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:129
+#: inc/widget-mailchimp-subscribe.php:153
 msgid "Mailchimp list:"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:166
-#: inc/widget-mailchimp-subscribe.php:192
+#: inc/widget-mailchimp-subscribe.php:174
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: inc/widget-mailchimp-subscribe.php:183
+#: proteusthemes-mailchimp-widget.php:91
+msgid "This Mailchimp API key is not formatted correctly, please copy the whole API key from the Mailchimp dashboard!"
+msgstr ""
+
+#: inc/widget-mailchimp-subscribe.php:207
+#: inc/widget-mailchimp-subscribe.php:217
+#: inc/widget-mailchimp-subscribe.php:256
 msgid "There was an error connecting to the Mailchimp servers."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:177
+#: inc/widget-mailchimp-subscribe.php:225
 #, php-format
 msgid "Error: %1$s (error code: %2$s)"
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:184
+#: inc/widget-mailchimp-subscribe.php:248
 msgid "There are no email lists with this API key! Please create an email list in the Mailchimp dashboard and try again."
 msgstr ""
 
-#: inc/widget-mailchimp-subscribe.php:204
+#: inc/widget-mailchimp-subscribe.php:261
 msgid "Mailchimp lists were successfully retrieved!"
 msgstr ""
 
-#: proteusthemes-mailchimp-widget.php:85
+#: proteusthemes-mailchimp-widget.php:89
 msgid "An error occurred while retrieving data via the AJAX request!"
 msgstr ""
 
-#: proteusthemes-mailchimp-widget.php:86
+#: proteusthemes-mailchimp-widget.php:90
 msgid "Please input the Mailchimp API key!"
-msgstr ""
-
-#: proteusthemes-mailchimp-widget.php:87
-msgid "This Mailchimp API key is not formatted correctly, please copy the whole API key from the Mailchimp dashboard!"
 msgstr ""
